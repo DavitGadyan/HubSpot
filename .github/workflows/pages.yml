@@ -23,9 +23,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+      # Requires GitHub Pages enabled once in the repo settings with source "GitHub Actions".
       - run: npm ci
       - name: Build static export
         run: npm run build:static
