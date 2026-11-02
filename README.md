@@ -25,6 +25,19 @@ npm run lint
 npm run build
 ```
 
+## Two deployment modes
+
+| Mode | Command | What runs | Host |
+|---|---|---|---|
+| Full app | `npm run build && npm start` | Everything: quiz, HubSpot scan, Claude plan, audits DB, admin | Any Node host (Vercel, Render, VPS) |
+| Static site | `npm run build:static` → `.next-static/` | Home, use cases, case studies, and a gated `/audit` page ("sign-in only"). No server routes. | GitHub Pages via `.github/workflows/pages.yml` (push to `main`) |
+
+The static build temporarily moves the server-only routes out of `src/` (see `scripts/static-build.mjs`), swaps in `src/app/audit/page.static.tsx`, and restores everything afterwards. GitHub Pages serves a project site under `/HubSpot`, so asset URLs go through `src/lib/asset.ts` and `NEXT_PUBLIC_BASE_PATH`. Repository variables `PAGES_BASE_PATH` (set to empty for a custom domain), `PAGES_SITE_URL`, `BOOKING_URL`, `CONTACT_EMAIL`, `APP_URL` (turns the "Sign in" button on) are read by the workflow. The first run needs GitHub Pages enabled with source "GitHub Actions" (Settings → Pages) if the workflow cannot enable it itself.
+
+## Demo recording (portfolio assets)
+
+With the app running locally (`npm run dev`), `set -a; . ./.env.local; set +a; npm run demo:record` records a full walkthrough (home → case studies → use case → audit → quiz → Claude results → admin) to `demo/hubaiops-demo.mp4` and full-page screenshots to `demo/screenshots/`. Set `ANTHROPIC_API_KEY` and `DATABASE_URL` in `.env.local` first so the recording shows the Claude-written plan and persistent audits; `ADMIN_PASSWORD` enables the admin page.
+
 ## Deploy (GitHub + Vercel)
 
 1. **Database.** Create a Supabase project and copy the *transaction pooler* connection string (port 6543). Then run `DATABASE_URL=... npm run db:push`.
