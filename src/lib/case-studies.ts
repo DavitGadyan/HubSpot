@@ -13,14 +13,21 @@ export interface CaseStudy {
   hubs: string[];
   useCases: UseCaseId[];
   metrics: { value: string; label: string }[];
+  /** HubAIOps' own metric: AI-readiness score before and after the engagement. */
+  readiness?: { before: number; after: number };
   stack: string[];
   status: "published" | "draft";
+  /** Representative engagement with illustrative numbers (not a named client). */
+  sample: boolean;
   featured: boolean;
   date: string;
+  summary: string;
   image?: string;
   sourceUrl?: string;
   body: string;
 }
+
+export type CaseStudySummary = Omit<CaseStudy, "body">;
 
 const DIR = path.join(process.cwd(), "content", "case-studies");
 
@@ -47,10 +54,13 @@ function loadAll(): CaseStudy[] {
         hubs: data.hubs ?? [],
         useCases: data.useCases ?? [],
         metrics: data.metrics ?? [],
+        readiness: data.readiness,
         stack: data.stack ?? [],
         status: data.status === "draft" ? "draft" : "published",
+        sample: data.sample !== false,
         featured: Boolean(data.featured),
         date: String(data.date ?? ""),
+        summary: data.summary ?? "",
         image: data.image,
         sourceUrl: data.sourceUrl,
         body: content,
@@ -67,6 +77,11 @@ export function getCaseStudies(): CaseStudy[] {
 
 export function getCaseStudy(slug: string): CaseStudy | null {
   return getCaseStudies().find((c) => c.slug === slug) ?? null;
+}
+
+export function toSummary({ body: _body, ...rest }: CaseStudy): CaseStudySummary {
+  void _body;
+  return rest;
 }
 
 /** Case studies relevant to the weakest use cases, published first. */

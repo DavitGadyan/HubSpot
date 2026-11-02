@@ -1,6 +1,6 @@
-# HubSpot AI Readiness
+# HubAIOps
 
-A site and app for a HubSpot AI optimization practice. It has three parts:
+HubAIOps: a HubSpot optimization agency site with an AI-readiness auditor and optimizer. It has three parts:
 
 - **Case studies.** A filterable grid (industry, HubSpot product, AI use case) with a detail page for each study. Content lives in `content/case-studies/*.md`.
 - **HubSpot Auditor.** A 30-question self-assessment, plus a read-only OAuth scan of a real portal. The scan measures 15 of the checks directly: lifecycle, owner and association coverage, duplicates, property sprawl, industry standardization, ICP fields, ticket pipelines, blog sources and workflow health.
@@ -54,7 +54,8 @@ GitHub Actions (`.github/workflows/ci.yml`) runs lint, typecheck, tests and buil
 ## Case studies
 
 - **Add one:** drop a Markdown file into `content/case-studies/` (copy an existing one for the frontmatter). Use `status: draft` until the client approves the numbers.
-- **Publish a draft:** fill in a `draft-*.md` file and switch it to `published`.
+- **Representative engagements:** the shipped set is modelled on common HubSpot engagement types (pipeline cleanup, migrations, dedup + ERP sync, integrations, scoring, workflow repair, help desk, agent rollouts). They carry `sample: true`, which shows a "representative engagement" note on the detail page. Replace figures with real client numbers and set `sample: false` as you publish real work.
+- **Readiness metric:** `readiness: { before, after }` is HubAIOps' own metric, shown on every card and detail page.
 - **Admin:** `/admin` uses HTTP basic auth (`ADMIN_PASSWORD`, any username). It lists leads and audits.
 
 ## Project map

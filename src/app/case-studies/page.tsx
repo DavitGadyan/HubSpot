@@ -1,36 +1,65 @@
 import type { Metadata } from "next";
 import { CaseStudyGrid } from "@/components/CaseStudyGrid";
+import { Counter, Reveal } from "@/components/motion";
 import { ButtonLink, Container, Eyebrow } from "@/components/SiteChrome";
-import { getCaseStudies } from "@/lib/case-studies";
+import { getCaseStudies, toSummary } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
-  title: "Case studies",
-  description: "HubSpot data, AI agent and automation work: duplicates, industry standardization, attribution, lead scoring and agent guardrails.",
+  title: "HubSpot case studies",
+  description:
+    "HubSpot optimization case studies: pipeline cleanup, CRM migrations, deduplication, integrations, lead scoring, workflow repair and AI-agent rollouts, each with before/after AI-readiness scores.",
 };
 
 export default function CaseStudiesPage() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const items = getCaseStudies().map(({ body, ...rest }) => rest);
+  const items = getCaseStudies().map(toSummary);
+  const industries = new Set(items.map((i) => i.industry)).size;
   return (
-    <Container className="py-16 sm:py-20">
-      <Eyebrow>Case studies</Eyebrow>
-      <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-balance sm:text-6xl">
-        The foundation work AI agents depend on
-      </h1>
-      <p className="mt-5 max-w-2xl text-muted">
-        Clean data, trusted fields, connected systems and guardrails, delivered for real clients. Every number below
-        comes from the project itself. Filter by industry, HubSpot product or the AI use case it unlocks.
-      </p>
-      <div className="mt-12">
+    <>
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="glow absolute inset-0" />
+        <div className="grid-bg absolute inset-0" />
+        <Container className="relative py-16 sm:py-20">
+          <Reveal>
+            <Eyebrow>Case studies</Eyebrow>
+            <h1 className="mt-5 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-balance sm:text-6xl">
+              HubSpot case studies, <span className="gradient-text">scored for AI readiness</span>
+            </h1>
+            <p className="mt-5 max-w-2xl text-muted">
+              Pipeline cleanups, migrations, deduplication, integrations and agent rollouts. Every engagement shows the
+              outcome metric and the AI-readiness score before and after, so you can see what changed underneath.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-8 flex flex-wrap gap-6 font-mono text-sm text-muted">
+              <span>
+                <Counter value={items.length} className="text-text" /> engagements
+              </span>
+              <span>
+                <Counter value={industries} className="text-text" /> industries
+              </span>
+              <span>
+                <Counter value={6} className="text-text" /> HubSpot hubs
+              </span>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <Container className="py-12">
         <CaseStudyGrid items={items} />
-      </div>
-      <div className="mt-20 flex flex-col items-start gap-4 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h2 className="font-display text-3xl">Not seeing ROI from HubSpot AI?</h2>
-          <p className="mt-2 text-muted">Run the audit and get your own results page in minutes.</p>
-        </div>
-        <ButtonLink href="/audit">Run the free audit</ButtonLink>
-      </div>
-    </Container>
+        <Reveal>
+          <div className="relative mt-20 overflow-hidden rounded-3xl border border-line p-8 sm:flex sm:items-center sm:justify-between">
+            <div className="glow absolute inset-0" />
+            <div className="relative">
+              <h2 className="font-display text-3xl">Frustrated you&apos;re not seeing ROI from HubSpot?</h2>
+              <p className="mt-2 text-muted">Run the audit and get your own before score in minutes.</p>
+            </div>
+            <ButtonLink href="/audit" className="relative mt-5 sm:mt-0">
+              Run the free audit
+            </ButtonLink>
+          </div>
+        </Reveal>
+      </Container>
+    </>
   );
 }

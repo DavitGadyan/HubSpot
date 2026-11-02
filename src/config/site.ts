@@ -1,14 +1,13 @@
 /** Brand + contact settings. Change these to rebrand the whole site. */
 export const site = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Gadyan AI Ops",
-  tagline: "HubSpot AI readiness, audits and agent implementation",
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "HubAIOps",
+  tagline: "HubSpot optimization, AI-readiness audits and Breeze agent implementation",
   description:
-    "Find out whether your HubSpot portal is ready for Breeze AI agents. Free AI-readiness audit, live portal scan and a prioritized optimization plan for every use case.",
+    "HubAIOps gets HubSpot portals ready for AI. Free AI-readiness audit, read-only portal scan, and a prioritized optimization plan for every Breeze agent use case.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  owner: "David Gadyan",
+  owner: "HubAIOps",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
-  portfolioUrl: "https://davitgadyan.github.io/portfolio_app/",
   nav: [
     { href: "/audit", label: "Free audit" },
     { href: "/use-cases", label: "Use cases" },
