@@ -2,12 +2,27 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { site } from "@/config/site";
+import { asset } from "@/lib/asset";
 import "./globals.css";
 
 // Primary typeface is PP Neue Montreal, loaded via @font-face from /public/fonts (see globals.css).
 // Inter is the fallback until the licensed files are added.
 const fallback = Inter({ variable: "--font-fallback", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
+
+// PP Neue Montreal (licensed, not bundled). Drop the .woff2 files into /public/fonts
+// with these names and the site picks them up; otherwise Inter is used.
+const fontFace = [
+  ["Book", 400, "normal"],
+  ["Medium", 500, "normal"],
+  ["Bold", 700, "normal"],
+  ["Italic", 400, "italic"],
+]
+  .map(
+    ([name, weight, style]) =>
+      `@font-face{font-family:"PP Neue Montreal";src:url("${asset(`/fonts/PPNeueMontreal-${name}.woff2`)}") format("woff2");font-weight:${weight};font-style:${style};font-display:swap}`,
+  )
+  .join("");
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,6 +34,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${fallback.variable} ${mono.variable}`}>
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: fontFace }} />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>

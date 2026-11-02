@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import type { CaseStudySummary } from "@/lib/case-studies";
 import { USE_CASE_BY_ID } from "@/lib/audit/rubric";
 
@@ -19,7 +20,7 @@ export function CaseStudyCard({ cs }: { cs: CaseStudySummary }) {
       <div className="relative aspect-[16/9] overflow-hidden bg-surface-2">
         {cs.image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={cs.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 transition-[opacity,transform] duration-300 group-hover:scale-[1.03] group-hover:opacity-100" />
+          <img src={asset(cs.image)} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 transition-[opacity,transform] duration-300 group-hover:scale-[1.03] group-hover:opacity-100" />
         ) : (
           <div className={`absolute inset-0 bg-gradient-to-br ${grad} opacity-25 transition-opacity duration-300 group-hover:opacity-40`} />
         )}

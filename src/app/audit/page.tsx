@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ConnectForm } from "@/components/ConnectForm";
 import { ButtonLink, Container, Eyebrow } from "@/components/SiteChrome";
+import { asset } from "@/lib/asset";
 import { CHECKS } from "@/lib/audit/rubric";
 import { hubspotConfigured } from "@/lib/hubspot/oauth";
 
@@ -31,7 +32,7 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
       <div className="card mt-10 overflow-hidden p-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/site/audit-screen.jpg"
+          src={asset("/images/site/audit-screen.jpg")}
           alt="A laptop showing a sales pipeline board"
           className="aspect-[21/9] w-full object-cover object-center"
         />

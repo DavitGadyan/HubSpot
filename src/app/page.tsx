@@ -4,6 +4,7 @@ import { HeroMockup } from "@/components/HeroMockup";
 import { Counter, Item, Reveal, Stagger, Tilt } from "@/components/motion";
 import { ButtonLink, Container, Eyebrow } from "@/components/SiteChrome";
 import { bookingHref } from "@/config/site";
+import { asset } from "@/lib/asset";
 import { CHECKS, USE_CASES } from "@/lib/audit/rubric";
 import { getCaseStudies, toSummary } from "@/lib/case-studies";
 
@@ -164,7 +165,7 @@ export default function Home() {
             <div className="card mt-10 overflow-hidden p-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/site/team-review.jpg"
+                src={asset("/images/site/team-review.jpg")}
                 alt="A consultant and a client reviewing a CRM pipeline dashboard together"
                 loading="lazy"
                 className="aspect-[16/10] w-full object-cover"
@@ -275,7 +276,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-3xl border border-line px-6 py-16 text-center sm:px-12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/site/strategy-session.jpg"
+                src={asset("/images/site/strategy-session.jpg")}
                 alt=""
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover opacity-25"

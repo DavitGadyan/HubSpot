@@ -43,3 +43,9 @@ next-env.d.ts
 .data/
 !.env.example
 .playwright-mcp/
+
+# static export
+/out/
+/.static-excluded/
+/demo/
+/.next-static/

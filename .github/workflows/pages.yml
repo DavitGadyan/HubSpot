@@ -1,0 +1,54 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - run: npm ci
+      - name: Build static export
+        run: npm run build:static
+        env:
+          # Project site lives under /<repo>. Set the PAGES_BASE_PATH repo variable to "" when using a custom domain.
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.PAGES_BASE_PATH || '/HubSpot' }}
+          NEXT_PUBLIC_SITE_URL: ${{ vars.PAGES_SITE_URL || 'https://davitgadyan.github.io/HubSpot' }}
+          NEXT_PUBLIC_SITE_NAME: HubAIOps
+          NEXT_PUBLIC_BOOKING_URL: ${{ vars.BOOKING_URL }}
+          NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+          NEXT_PUBLIC_APP_URL: ${{ vars.APP_URL }}
+          SHOW_DRAFTS: "false"
+      - run: touch .next-static/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .next-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

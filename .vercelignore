@@ -1,0 +1,5 @@
+docs/
+.data/
+.playwright-mcp/
+.github/
+tests/
