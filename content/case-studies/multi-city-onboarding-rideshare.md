@@ -11,6 +11,8 @@ metrics:
   - { value: "1", label: "pipeline instead of six spreadsheets" }
 readiness: { before: 35, after: 80 }
 stack: ["Sales Hub Professional", "Service Hub Professional", "Workflows", "Custom objects: Vehicles", "SMS integration"]
+engagement: "Onboarding automation"
+duration: "7 weeks"
 status: published
 sample: true
 featured: false

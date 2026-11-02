@@ -11,6 +11,8 @@ metrics:
   - { value: "100%", label: "deal history preserved" }
 readiness: { before: 29, after: 81 }
 stack: ["Sales Hub Professional", "Portal merge", "Import/export", "Permission sets", "Dedupe"]
+engagement: "Portal merge"
+duration: "5 weeks"
 status: published
 sample: true
 featured: false

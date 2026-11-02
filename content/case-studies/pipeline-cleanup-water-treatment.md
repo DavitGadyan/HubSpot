@@ -11,6 +11,8 @@ metrics:
   - { value: "94%", label: "open deals with a next step" }
 readiness: { before: 31, after: 78 }
 stack: ["Sales Hub Professional", "Service Hub Starter", "Deal stage automation", "Forecast reports"]
+engagement: "Pipeline cleanup & forecast"
+duration: "5 weeks"
 status: published
 sample: true
 featured: true

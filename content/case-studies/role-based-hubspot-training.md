@@ -11,6 +11,8 @@ metrics:
   - { value: "0", label: "developer tickets to edit a page" }
 readiness: { before: 52, after: 77 }
 stack: ["Marketing Hub Professional", "Sales Hub Starter", "Content Hub", "Training program", "Playbooks"]
+engagement: "Training & adoption"
+duration: "6 weeks"
 status: published
 sample: true
 featured: false

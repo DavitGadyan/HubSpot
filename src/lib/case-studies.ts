@@ -17,6 +17,10 @@ export interface CaseStudy {
   /** HubAIOps' own metric: AI-readiness score before and after the engagement. */
   readiness?: { before: number; after: number };
   stack: string[];
+  /** Engagement type, e.g. "Pipeline cleanup & forecast". */
+  engagement?: string;
+  /** e.g. "6 weeks" */
+  duration?: string;
   status: "published" | "draft";
   /** Representative engagement with illustrative numbers (not a named client). */
   sample: boolean;
@@ -57,6 +61,8 @@ function loadAll(): CaseStudy[] {
         metrics: data.metrics ?? [],
         readiness: data.readiness,
         stack: data.stack ?? [],
+        engagement: data.engagement,
+        duration: data.duration,
         status: data.status === "draft" ? "draft" : "published",
         sample: data.sample !== false,
         featured: Boolean(data.featured),

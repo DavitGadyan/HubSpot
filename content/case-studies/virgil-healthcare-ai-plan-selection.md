@@ -10,6 +10,7 @@ metrics:
   - { value: "Automated", label: "medication price and coverage lookup across plans" }
   - { value: "HIPAA", label: "secure storage and transfer of all AI and data" }
 stack: ["LangChain", "FastAPI", "OpenAI reasoning model", "MCP tools", "Docker", "Kubernetes", "AWS", "HIPAA-compliant data handling"]
+engagement: "Agentic AI build under HIPAA"
 status: published
 sample: false
 featured: true

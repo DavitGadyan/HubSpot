@@ -11,6 +11,8 @@ metrics:
   - { value: "20", label: "golden-set questions tested before launch" }
 readiness: { before: 34, after: 86 }
 stack: ["Service Hub Professional", "Knowledge base", "Breeze Customer Agent", "Ticket pipeline", "SLAs"]
+engagement: "Service Hub & Customer Agent"
+duration: "6 weeks"
 status: published
 sample: true
 featured: false

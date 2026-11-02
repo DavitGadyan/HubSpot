@@ -11,6 +11,8 @@ metrics:
   - { value: "38", label: "workflows, all documented" }
 readiness: { before: 40, after: 83 }
 stack: ["Sales Hub Enterprise", "Workflows", "Sequences", "Custom quotes", "Webhook to underwriting system"]
+engagement: "Sales process automation"
+duration: "6 weeks"
 status: published
 sample: true
 featured: false

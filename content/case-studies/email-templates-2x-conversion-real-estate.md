@@ -11,6 +11,8 @@ metrics:
   - { value: "12%", label: "reply rate on the re-engagement sequence" }
 readiness: { before: 47, after: 79 }
 stack: ["Sales Hub Professional", "Sequences", "Templates", "Brand Voice", "Breeze Content Agent"]
+engagement: "Sequences, templates & Brand Voice"
+duration: "4 weeks"
 status: published
 sample: true
 featured: false

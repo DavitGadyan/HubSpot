@@ -11,6 +11,8 @@ metrics:
   - { value: "100%", label: "leads with a trusted source" }
 readiness: { before: 41, after: 84 }
 stack: ["Marketing Hub Professional", "Sales Hub Professional", "Custom API integration", "Lead routing workflows", "Lead scoring"]
+engagement: "Custom API integration & routing"
+duration: "4 weeks"
 status: published
 sample: true
 featured: false

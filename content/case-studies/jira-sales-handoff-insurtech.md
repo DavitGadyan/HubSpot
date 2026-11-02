@@ -11,6 +11,8 @@ metrics:
   - { value: "61%", label: "faster onboarding, signed to live" }
 readiness: { before: 37, after: 79 }
 stack: ["Sales Hub Professional", "Service Hub Professional", "Jira Cloud integration", "Workflows", "Custom properties"]
+engagement: "Jira integration & multi-pipeline setup"
+duration: "6 weeks"
 status: published
 sample: true
 featured: false

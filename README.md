@@ -54,7 +54,8 @@ GitHub Actions (`.github/workflows/ci.yml`) runs lint, typecheck, tests and buil
 ## Case studies
 
 - **Add one:** drop a Markdown file into `content/case-studies/` (copy an existing one for the frontmatter). Use `status: draft` until the client approves the numbers.
-- **Representative engagements:** the shipped set is modelled on common HubSpot engagement types (pipeline cleanup, migrations, dedup + ERP sync, integrations, scoring, workflow repair, help desk, agent rollouts). They carry `sample: true`, which shows a "representative engagement" note on the detail page. Replace figures with real client numbers and set `sample: false` as you publish real work.
+- **Representative engagements:** the shipped set is modelled on common HubSpot engagement types (pipeline cleanup, migrations, dedup + ERP sync, integrations, scoring, workflow repair, help desk, agent rollouts). They carry `sample: true` in frontmatter (no visible label). One footnote, `site.caseStudyDisclosure` in `src/config/site.ts`, appears under case-study pages; replace figures with real client numbers and set `sample: false` as you publish real work, then shorten or remove the footnote.
+- **Engagement metadata:** `engagement` (type) and `duration` show in the detail-page sidebar.
 - **Readiness metric:** `readiness: { before, after }` is HubAIOps' own metric, shown on every card and detail page.
 - **Admin:** `/admin` uses HTTP basic auth (`ADMIN_PASSWORD`, any username). It lists leads and audits.
 

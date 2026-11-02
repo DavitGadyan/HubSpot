@@ -11,6 +11,8 @@ metrics:
   - { value: "0", label: "leads lost during cutover" }
 readiness: { before: 28, after: 84 }
 stack: ["Sales Hub Enterprise", "Service Hub Professional", "Salesforce export API", "Custom objects", "Import mapping"]
+engagement: "Salesforce to HubSpot migration"
+duration: "8 weeks"
 status: published
 sample: true
 featured: true

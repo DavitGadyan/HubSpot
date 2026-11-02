@@ -11,6 +11,8 @@ metrics:
   - { value: "+34%", label: "re-engaged prospects per quarter" }
 readiness: { before: 41, after: 80 }
 stack: ["Sales Hub Professional", "Sequences", "Workflows", "Lifecycle automation", "Meetings"]
+engagement: "Lifecycle & follow-up automation"
+duration: "4 weeks"
 status: published
 sample: true
 featured: false

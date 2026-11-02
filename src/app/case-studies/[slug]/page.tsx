@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { AnimatedRing, Item, Reveal, Stagger } from "@/components/motion";
 import { ButtonLink, Container, Eyebrow } from "@/components/SiteChrome";
+import { site } from "@/config/site";
 import { USE_CASE_BY_ID } from "@/lib/audit/rubric";
 import { getCaseStudies, getCaseStudy, toSummary } from "@/lib/case-studies";
 
@@ -85,16 +86,32 @@ export default async function CaseStudyPage({ params }: Params) {
       <Container className="grid gap-12 py-12 lg:grid-cols-[1fr_300px]">
         <Reveal className="prose-case max-w-2xl">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{cs.body}</ReactMarkdown>
-          {cs.sample && (
-            <p className="mt-10 rounded-xl border border-line bg-surface p-4 text-xs text-muted">
-              Representative engagement. Industry, size and figures describe a typical HubAIOps project of this kind;
-              client identity is withheld.
-            </p>
-          )}
         </Reveal>
         <aside className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
           <Reveal delay={0.1} className="card p-5">
-            <p className="font-mono text-xs uppercase tracking-wider text-muted">Unlocks</p>
+            <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+              {cs.engagement && (
+                <div className="col-span-2">
+                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted">Engagement</dt>
+                  <dd className="mt-0.5">{cs.engagement}</dd>
+                </div>
+              )}
+              {cs.duration && (
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted">Duration</dt>
+                  <dd className="mt-0.5">{cs.duration}</dd>
+                </div>
+              )}
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-wider text-muted">Company size</dt>
+                <dd className="mt-0.5">{cs.size}</dd>
+              </div>
+              <div className="col-span-2">
+                <dt className="font-mono text-[10px] uppercase tracking-wider text-muted">Industry</dt>
+                <dd className="mt-0.5">{cs.industry}</dd>
+              </div>
+            </dl>
+            <p className="mt-5 font-mono text-xs uppercase tracking-wider text-muted">Unlocks</p>
             <ul className="mt-3 flex flex-col gap-2 text-sm">
               {cs.useCases.map((u) => (
                 <li key={u}>
@@ -135,6 +152,11 @@ export default async function CaseStudyPage({ params }: Params) {
               </Item>
             ))}
           </Stagger>
+        </Container>
+      )}
+      {site.caseStudyDisclosure && (
+        <Container className="pt-12">
+          <p className="text-xs text-muted/70">{site.caseStudyDisclosure}</p>
         </Container>
       )}
     </article>

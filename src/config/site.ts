@@ -8,6 +8,9 @@ export const site = {
   owner: "HubAIOps",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
+  /** Small footnote shown under case studies. Set to "" to hide it. */
+  caseStudyDisclosure:
+    "Client names are withheld. Where a client has not approved public disclosure, figures are representative of HubAIOps engagements of that type.",
   nav: [
     { href: "/audit", label: "Free audit" },
     { href: "/use-cases", label: "Use cases" },

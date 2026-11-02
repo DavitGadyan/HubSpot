@@ -11,6 +11,8 @@ metrics:
   - { value: "11 → 1", label: "fields meaning 'order value'" }
 readiness: { before: 24, after: 80 }
 stack: ["Sales Hub Professional", "SugarCRM export", "Data transformation scripts", "Import mapping", "Validation reports"]
+engagement: "Legacy CRM migration"
+duration: "9 weeks"
 status: published
 sample: true
 featured: false

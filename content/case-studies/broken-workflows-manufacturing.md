@@ -11,6 +11,8 @@ metrics:
   - { value: "100%", label: "workflows with an owner and description" }
 readiness: { before: 30, after: 82 }
 stack: ["Sales Hub Professional", "Operations Hub Professional", "Workflow audit", "Documentation", "Monitoring"]
+engagement: "Workflow audit & repair"
+duration: "5 weeks"
 status: published
 sample: true
 featured: true

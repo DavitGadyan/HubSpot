@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CaseStudyGrid } from "@/components/CaseStudyGrid";
 import { Counter, Reveal } from "@/components/motion";
 import { ButtonLink, Container, Eyebrow } from "@/components/SiteChrome";
+import { site } from "@/config/site";
 import { getCaseStudies, toSummary } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function CaseStudiesPage() {
             </ButtonLink>
           </div>
         </Reveal>
+        {site.caseStudyDisclosure && <p className="mt-10 text-xs text-muted/70">{site.caseStudyDisclosure}</p>}
       </Container>
     </>
   );

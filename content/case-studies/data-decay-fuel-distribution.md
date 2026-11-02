@@ -11,6 +11,8 @@ metrics:
   - { value: "100%", label: "active records with an active owner" }
 readiness: { before: 22, after: 79 }
 stack: ["Sales Hub Professional", "Data Hub", "Breeze Intelligence enrichment", "Data quality tooling", "Archival rules"]
+engagement: "Data cleanup & enrichment"
+duration: "6 weeks"
 status: published
 sample: true
 featured: false

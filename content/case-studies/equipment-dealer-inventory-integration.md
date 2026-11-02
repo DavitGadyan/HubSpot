@@ -11,6 +11,8 @@ metrics:
   - { value: "50/day", label: "outreach cap with human review" }
 readiness: { before: 36, after: 82 }
 stack: ["Sales Hub Professional", "Custom object: Units", "Inventory API integration", "Sequences", "Breeze Prospecting Agent"]
+engagement: "Inventory integration & Prospecting Agent"
+duration: "6 weeks"
 status: published
 sample: true
 featured: false

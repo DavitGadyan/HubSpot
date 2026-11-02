@@ -11,6 +11,8 @@ metrics:
   - { value: "0", label: "untouched leads older than 48 hrs" }
 readiness: { before: 32, after: 78 }
 stack: ["Service Hub Professional", "Sales Hub Starter", "Workflows", "Sequences", "Lifecycle automation"]
+engagement: "Lead triage & quote automation"
+duration: "3 weeks"
 status: published
 sample: true
 featured: false

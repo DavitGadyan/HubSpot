@@ -11,6 +11,8 @@ metrics:
   - { value: "0", label: "manual data entry steps" }
 readiness: { before: 38, after: 85 }
 stack: ["Sales Hub Professional", "Operations Hub Professional", "Custom-coded workflow actions", "Credit bureau API", "Calculated properties"]
+engagement: "Underwriting automation"
+duration: "7 weeks"
 status: published
 sample: true
 featured: false

@@ -11,6 +11,8 @@ metrics:
   - { value: "1", label: "forecast across DTC and wholesale" }
 readiness: { before: 37, after: 81 }
 stack: ["Sales Hub Professional", "Operations Hub Professional", "Shopify integration", "Custom object: Orders", "Forecast reports"]
+engagement: "Shopify integration & forecasting"
+duration: "7 weeks"
 status: published
 sample: true
 featured: false

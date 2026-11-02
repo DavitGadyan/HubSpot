@@ -11,6 +11,8 @@ metrics:
   - { value: "99.6%", label: "customer records matched" }
 readiness: { before: 26, after: 86 }
 stack: ["Operations Hub Professional", "NetSuite", "Data sync", "Custom object: District hierarchy", "Dedupe scripts"]
+engagement: "Data cleanup & NetSuite integration"
+duration: "10 weeks"
 status: published
 sample: true
 featured: true

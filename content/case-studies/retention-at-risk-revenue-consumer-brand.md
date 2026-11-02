@@ -11,6 +11,8 @@ metrics:
   - { value: "90 days", label: "early-warning window" }
 readiness: { before: 45, after: 84 }
 stack: ["Marketing Hub Professional", "Service Hub Professional", "Shopify integration", "Calculated properties", "Workflows"]
+engagement: "Shopify integration & retention automation"
+duration: "8 weeks"
 status: published
 sample: true
 featured: false

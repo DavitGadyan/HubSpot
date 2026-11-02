@@ -11,6 +11,8 @@ metrics:
   - { value: "100%", label: "closed-won revenue attributed to a source" }
 readiness: { before: 44, after: 82 }
 stack: ["Marketing Hub Professional", "Sales Hub Professional", "Custom report builder", "Attribution reports", "Calculated properties"]
+engagement: "Reporting & attribution"
+duration: "4 weeks"
 status: published
 sample: true
 featured: false

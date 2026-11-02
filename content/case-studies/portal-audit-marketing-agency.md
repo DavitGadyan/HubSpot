@@ -11,6 +11,8 @@ metrics:
   - { value: "9", label: "do-now items, closed in 3 weeks" }
 readiness: { before: 33, after: 71 }
 stack: ["Marketing Hub Professional", "Sales Hub Starter", "HubAIOps audit", "Brand Voice", "Knowledge vault"]
+engagement: "Portal audit & AI readiness"
+duration: "3 weeks"
 status: published
 sample: true
 featured: false

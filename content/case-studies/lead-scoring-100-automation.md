@@ -11,6 +11,8 @@ metrics:
   - { value: "+27%", label: "sales-qualified leads per month" }
 readiness: { before: 43, after: 87 }
 stack: ["Marketing Hub Professional", "Sales Hub Professional", "Custom lead scoring", "Routing workflows", "Breeze Intelligence"]
+engagement: "Lead scoring & routing"
+duration: "6 weeks"
 status: published
 sample: true
 featured: true

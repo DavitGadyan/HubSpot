@@ -11,6 +11,8 @@ metrics:
   - { value: "1", label: "weekly forecast for leadership" }
 readiness: { before: 20, after: 80 }
 stack: ["Sales Hub Professional", "Marketing Hub Professional", "CRM migration from spreadsheets", "Permission sets", "Dashboards"]
+engagement: "CRM implementation from spreadsheets"
+duration: "8 weeks"
 status: published
 sample: true
 featured: false
