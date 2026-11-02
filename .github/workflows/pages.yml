@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       # Requires GitHub Pages enabled once in the repo settings with source "GitHub Actions".
       - run: npm ci
