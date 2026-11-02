@@ -161,6 +161,15 @@ export default function Home() {
             <ButtonLink href="/use-cases" variant="ghost" className="mt-8">
               Explore the use cases
             </ButtonLink>
+            <div className="card mt-10 overflow-hidden p-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/site/team-review.jpg"
+                alt="A consultant and a client reviewing a CRM pipeline dashboard together"
+                loading="lazy"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </div>
           </Reveal>
           <Stagger className="grid gap-4">
             {STEPS.map((s, i) => (
@@ -264,6 +273,14 @@ export default function Home() {
         <Container className="py-8">
           <Reveal>
             <div className="relative overflow-hidden rounded-3xl border border-line px-6 py-16 text-center sm:px-12">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/site/strategy-session.jpg"
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover opacity-25"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/80 to-bg" />
               <div className="glow absolute inset-0" />
               <div className="grid-bg absolute inset-0" />
               <div className="relative">

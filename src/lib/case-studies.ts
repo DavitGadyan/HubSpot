@@ -3,6 +3,7 @@ import { readdirSync, readFileSync } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import type { UseCaseId } from "./audit/types";
+import { industryImage } from "./industry-images";
 
 export interface CaseStudy {
   slug: string;
@@ -61,7 +62,7 @@ function loadAll(): CaseStudy[] {
         featured: Boolean(data.featured),
         date: String(data.date ?? ""),
         summary: data.summary ?? "",
-        image: data.image,
+        image: data.image ?? industryImage(data.industry ?? ""),
         sourceUrl: data.sourceUrl,
         body: content,
       } satisfies CaseStudy;

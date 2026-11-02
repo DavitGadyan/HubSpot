@@ -28,7 +28,16 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
         </p>
       )}
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-2">
+      <div className="card mt-10 overflow-hidden p-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/site/audit-screen.jpg"
+          alt="A laptop showing a sales pipeline board"
+          className="aspect-[21/9] w-full object-cover object-center"
+        />
+      </div>
+
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <section className="flex flex-col rounded-3xl border border-line p-7">
           <p className="font-mono text-xs uppercase tracking-wider text-muted">Option 1 · 5 minutes</p>
           <h2 className="mt-3 font-display text-3xl">Self-assessment</h2>

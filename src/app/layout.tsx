@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { site } from "@/config/site";
 import "./globals.css";
 
-const sans = Geist({ variable: "--font-sans", subsets: ["latin"] });
+// Primary typeface is PP Neue Montreal, loaded via @font-face from /public/fonts (see globals.css).
+// Inter is the fallback until the licensed files are added.
+const fallback = Inter({ variable: "--font-fallback", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
-const display = Instrument_Serif({ variable: "--font-display", subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${sans.variable} ${mono.variable} ${display.variable} min-h-dvh flex flex-col`}>
+    <html lang="en" className={`${fallback.variable} ${mono.variable}`}>
+      <body className="flex min-h-dvh flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
