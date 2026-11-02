@@ -49,3 +49,4 @@ next-env.d.ts
 /.static-excluded/
 /demo/
 /.next-static/
+/.next-prod/

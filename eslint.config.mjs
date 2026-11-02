@@ -20,6 +20,7 @@ const eslintConfig = [
       "next-env.d.ts",
       ".static-excluded/**",
       ".next-static/**",
+      ".next-prod/**",
       "demo/**",
     ],
   },

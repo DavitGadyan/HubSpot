@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
   ...(isStatic
     ? { output: "export" as const, distDir: ".next-static", basePath, trailingSlash: true, images: { unoptimized: true } }
     : {
+        // NEXT_DIST_DIR lets a production build run next to a dev server (e.g. for demo recordings).
+        distDir: process.env.NEXT_DIST_DIR || ".next",
         // Case studies are read from disk at runtime by dynamic routes (results page, admin).
         outputFileTracingIncludes: { "/**": ["./content/**/*"] },
       }),
