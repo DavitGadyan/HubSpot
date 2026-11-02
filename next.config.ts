@@ -10,6 +10,8 @@ const isStatic = process.env.STATIC_EXPORT === "1";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const nextConfig: NextConfig = {
+  // No "N" dev badge in the corner (keeps dev-mode screenshots and recordings clean).
+  devIndicators: false,
   ...(isStatic
     ? { output: "export" as const, distDir: ".next-static", basePath, trailingSlash: true, images: { unoptimized: true } }
     : {
